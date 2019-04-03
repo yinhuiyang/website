@@ -1,0 +1,45 @@
+@import 'reset.scss';
+@import 'nav.scss';
+@import 'list.scss';
+@import 'defect-dialog.scss';
+.header {
+  .nav{
+    background: #eee;
+    border-radius: 4px;
+    li{
+      a{
+        border-radius: unset;
+      }
+      &:first-child{
+        a{
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+      &:last-child{
+        a{
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+    }
+  }
+}
+.condition-defect{
+  display: flex;
+  margin-left: 10px;
+  color: green;
+  font-size: 14px;
+  .condition-btn{
+    span{
+      cursor: pointer;
+      padding: 4px 10px;
+      margin-right: 10px;
+    }
+    &.active span{
+      border-bottom: 2px solid green;
+    }
+  }
+}
+
+

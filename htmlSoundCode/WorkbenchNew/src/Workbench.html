@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>工作台</title>
+    <link rel="stylesheet" href="./coos/coos.css">
+    <link rel="stylesheet" href="./plugins/fontawesome/css/font-awesome.min.css">
+    <link href="plugins/jquery/datetimepicker/jquery.datetimepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="Workbench.css">
+  </head>
+  <body class="Workbench">
+    <header class="Workbench-top">
+      <div class="icon-user">
+        <img src="./img/coos.png" alt="">
+      </div>
+      <div class="userName">
+        <div>林泽成</div>
+        <div><a>退出</a></div>
+      </div>
+      <div class="userOrganize">系统组，开发组</div>
+    </header>
+    <section class="Workbench-section">
+      <div class="section-area">
+        <div class="top-area">
+          <ul class="nav-links">
+            <li class="active"><a>星标项目</a><span>(4)</span></li>
+            <li><a>所有参与项目</a><span>(20)</span></li>
+            <li><a>我创建的</a><span>(4)</span></li>
+          </ul>
+          <div class="nav-controls">
+            <div class="CreateProject"><a>创建项目</a></div>
+            <input class="form-control nameFiltering" type="text" placeholder="按名称过滤...">
+          </div>
+        </div>
+        <div class="list">
+          
+          
+        </div>
+      </div>
+    </section>
+    <div class="gl-pagination">
+      <ul class="pagination clearfix"></ul>
+    </div>
+    <!-- -->
+    <!--  -->
+    <div class="addAuth">
+
+    </div>
+  <script src="./plugins/jquery/jquery.js"></script>
+  <script src="coos/coos.js"></script>
+  <script src="plugins/jquery/datetimepicker/jquery.datetimepicker.js"></script>
+  <script src="Workbench.js"></script>
+  <script>
+    Workbench.init();
+  </script>
+  </body>
+</html>

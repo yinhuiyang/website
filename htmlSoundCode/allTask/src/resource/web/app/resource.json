@@ -1,0 +1,17 @@
+{
+	"config": {
+		
+	},
+	"file": {
+		"js":
+		[
+			{"src": "/resource/web/app/js/app.js"},
+			{"src": "/resource/web/app/js/operate/operate.js"},
+			{"src": "/resource/web/app/js/menu/menu.js"}
+		],
+		"css":
+		[
+			{"src": "/resource/web/app/css/app.css"}
+		]
+	}
+}

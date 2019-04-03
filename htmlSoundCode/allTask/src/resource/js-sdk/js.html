@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <button onclick="getUnreadMessage()">获取未读信息</button>
+    <button onclick="portraitUrl()">获取用户头像</button>
+    <button onclick="getUserInfo()">获取用户信息</button>
+    <button onclick="getUserName()">获取用户名</button>
+    <button onclick="takePhoto()">掉摄像头</button>
+    <button onclick="getPosition()">获取位置信息</button>
+    <button onclick="getContacts()">豆豆好友</button>
+    <button onclick="getLocalFiles()">获取本地文件</button>
+    <button onclick="getGroupsInfo()">群信息</button>
+    <button onclick="getLocalPhotos()">本地图片</button>
+    <button onclick="getLocalPhotos1()">本地图片1</button>
+    <button onclick="getLocalFiles1()">获取本地文件1</button>
+    <button onclick="getInfoWithSweep()">二维码扫描</button>
+    <button onclick="showNavigationBar(true)">显示标题</button>
+    <button onclick="showNavigationBar(false)">不显示标题</button>
+    <button onclick="getOrganization()">获取组织机构</button>
+    <button onclick="closeView()">关闭视图</button>
+    <button onclick="getLanguage()">获取语言</button>
+    <button onclick="getGroupMembers()">获取群成员</button>
+    <button onclick="sendMessage()">发送消息</button>
+    <button onclick="getVersion()">获取版本信息</button>
+    <button onclick="double()">获取语言+获取位置信息</button>
+    <input id="orgid">
+    <button onclick="getOrganization2()">获取组织机构2</button>
+    <input id="groupId">
+    <button onclick="openChat()">打开单聊(输入id)</button>
+    <button onclick="createGroup()">创建群</button>
+    <button onclick="openChat()">打开群聊(输入id)</button>
+    <button onclick="deleteGroup()">退出群(输入id)</button>
+    <button onclick="openAudioCall()">打开豆豆音频</button>
+    <button onclick="openVideoCall()">打开豆豆视频</button>
+    <button onclick="openVideoCallVendor()">打开第三方视频</button>
+    <button onclick="getOAuthCode()">getOAuthCode</button>
+    <button onclick="getUserIdMap()">getUserIdMap</button>
+    <button onclick="callPhone()">打电话</button>
+    <button onclick="scanQrCode()">识别二维码图片</button>
+    <button onclick="shareTo()">分享</button>
+    <button onclick="downloadFile()">下载文件或图片</button>
+    <button onclick="speech2Text()">语音转文字</button>
+    <div>
+        <label for="file">上传图片</label>
+        <input type="file" name="file" id="file" onchange="appendByGallery()">
+    </div>
+    <div id="return" hidden></div>
+
+
+    <img id="img" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3062734635,4183904616&fm=96">
+
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <!--<script type="text/javascript" src="http://www.linkdood.cn/jssdk/url/vrv-jssdk.js"></script>-->
+    <script type="text/javascript" src="vrv-jssdk-2.0.js"></script>
+    <script>
+        //判断浏览器是否支持FileReader接口
+        if (typeof FileReader == 'undefined') {
+            alert("你的浏览器不支持FileReader接口！");
+            //使选择控件不可操作
+            file.setAttribute("disabled", "disabled");
+        }
+
+        function double() {
+            getLanguage();
+            getPosition();
+        }
+
+        function appendByGallery() {
+            var oFile = document.getElementById("file").files[0];
+            console.log("1");
+            var p = oFile.name.substring(oFile.name.lastIndexOf(".") + 1, oFile.name.length);
+            if (p.trim() != "jpg" & p.trim() != "gif" & p.trim() != "png") {
+                alert("格式要求:JPG,PNG,GIF");
+                return;
+            }
+            console.log("2");
+            var oImage = document.getElementById("img");
+            var oReader = new FileReader();
+            console.log("3");
+            oReader.onload = function (e) {
+                console.log("4");
+                oImage.src = e.target.result;
+                console.log(oImage.src)
+
+            };
+            oReader.readAsDataURL(oFile);
+            //			alert(oReader.toLocaleString());
+        }
+        //    setTimeout(function(){
+        //        vrv.ready(function(){
+        //            alert('ready');
+        //        });
+        //    },3000);
+
+        vrv.ready(function () {
+            getOrganization();
+        })
+
+        vrv.init({
+            debug: true
+        });
+        //    getUserInfo();
+        //    getPosition();
+        //    getGroupsInfo();
+        function takePhoto() {
+            vrv.jssdk.takePhoto({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getOrganization() {
+            vrv.jssdk.getOrganization({
+                orgId: 1,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getOrganization2(id) {
+            var id = $('#orgid').val();
+            id = parseInt(id);
+            alert(id);
+            vrv.jssdk.getOrganization({
+                orgId: id,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function closeView() {
+            vrv.jssdk.closeView({})
+        }
+
+        function getUnreadMessage() {
+            vrv.jssdk.getUnreadMessage({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getUserInfo() {
+            vrv.jssdk.getAccountInfo({
+                isEntUser: false, // 是否是企业用户 true 企业用户 false 普通用户
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function sendMessage() {
+            vrv.jssdk.sendMessage({
+                toID: 123, // 消息接收者Id 
+                body: "消息内容或随意json字段,子类型",
+                ext: "{roomID: 123, userID:456}", //自定义第三方扩展消息
+                success: function (res) {
+                    //{"code":0;"message":"错误信息"}// 新增，可能失败的最好都返回状态
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function sendCustomMessage() {
+            vrv.jssdk.sendCustomMessage({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function portraitUrl() {
+            vrv.jssdk.portraitUrl({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getUserName() {
+            vrv.jssdk.getUserName({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getPosition() {
+            vrv.jssdk.getPosition({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getLocalFiles() {
+            vrv.jssdk.getLocalFiles({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getGroupsInfo() {
+            vrv.jssdk.getGroupList({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getContacts() {
+            vrv.jssdk.getContactList({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getLocalPhotos() {
+            vrv.jssdk.getLocalPhotos({
+                success: function (res) {
+                    try {
+                        alert(JSON.stringify(res));
+                    } catch (e) {
+                        alert(e.message);
+                    }
+                }
+            })
+        }
+
+        function getLocalFiles1() {
+            vrv.jssdk.getLocalFiles({
+                size: 1,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getLocalPhotos1() {
+            vrv.jssdk.getLocalPhotos({
+                size: 1,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                    alert(res.mPhotoPath[0]);
+                    $("#img").attr("src", '' + res.mPhotoPath[0]);
+                    $('#url').html(res.mPhotoPath[0]);
+                }
+            })
+        }
+
+        function getInfoWithSweep() {
+            vrv.jssdk.getInfoWithSweep({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getLanguage() {
+            vrv.jssdk.getLanguage({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+
+        function showNavigationBar(show) {
+            vrv.jssdk.showNavigationBar({
+                show: show,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getGroupMembers() {
+            vrv.jssdk.getGroupMembers({
+                groupID: 4336932476,
+                page: 0,
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getVersion() {
+            vrv.jssdk.getVersion({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+
+        function openChat() {
+            var id = $('#groupId').val();
+            id = parseInt(id);
+            alert(id);
+            vrv.jssdk.openChat({
+                chatId: id, // 传入 对方id 如：群id 或者好友id
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function createGroup() {
+            vrv.jssdk.createGroup({
+                groupName: "js测试", // 群名称
+                users: [4328621794, 4328622225, 4328622564], // 群成员id
+                success: function (res) {
+                    // {"resultCode": 0,"groupID": 123456}
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function deleteGroup() {
+            var id = $('#groupId').val();
+            id = parseInt(id);
+            alert(id);
+            vrv.jssdk.deleteGroup({
+                groupId: id,
+                success: function (res) {
+                    // callback  {resultCode:code}
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        /**
+         * 打开豆豆音频p2p单聊
+         */
+        function openAudioCall() {
+            vrv.jssdk.openAudioCall({
+                userId: 4328621794, // 对方的id
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        /**
+         *  打开豆豆视频p2p单聊
+         */
+        function openVideoCall() {
+            vrv.jssdk.openVideoCall({
+                userId: 4328621794, // 对方的id
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        /**
+         *  打开视频会议
+         *  vendor 厂商
+         *  users 成员列表
+         *  extend 扩展信息
+         */
+        function openVideoCallVendor() {
+            vrv.jssdk.openVideoCallVendor({
+                vendor: "1", // 第三方视频类型
+                userIds: [4328621794, 4328622225, 4328622564],
+                extend: "extend",
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getOAuthCode() {
+            vrv.jssdk.getOAuthCode({
+                appId: 12985655387,
+                appSecret: "4WHtGYCUejcqoGa7TD1mVQ",
+                success: function (res) {
+                    // callback  {resultCode:code,authCode:result}
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function getUserIdMap() {
+            vrv.jssdk.getUserIdMap({
+                accountType: 1, // list 类型
+                accounts: [11012347200, 11012347201],
+                success: function (res) {
+                    //{resultCode:code,map:map[account:userId]}
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function callPhone() {
+            vrv.jssdk.callPhone({
+                phoneNum: "008618192826736",
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function scanQrCode() {
+            vrv.jssdk.scanQrCode({
+                path: "图片本地路径",
+                success: function (res) { // 成功返回 内容 失败 返回 ””
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function shareTo() {
+            vrv.jssdk.shareTo({
+                type: 3, // 1、豆豆 2、豆豆同事圈 3、豆豆收藏、4、QQ、5、微信 6、微信朋友圈  7、 微信收藏 、8、短信
+                body: "{\"subType\":1,\"text\":\"测试文本\"}",
+                ext: "{toID:456}", // 扩展 json
+                success: function (res) { // 成功或失败
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+
+        function downloadFile() {
+            vrv.jssdk.downloadFile({
+                type: 1, // 1、图片 2、 文件
+                url: "url",
+                success: function () {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        function speech2Text() {
+            vrv.jssdk.speech2Text({
+                type: 1, // 1、开始 2、 停止 3 、 取消   默认 1
+                success: function () {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        function portraitUrl() {
+            vrv.jssdk.portraitUrl({
+                userId: "需要查询头像的用户id",
+                success: function () {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        function getUserName() {
+            vrv.jssdk.getUserName({
+                userId: "需要查询的用户id",
+                success: function () {
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        function openFileURL() {
+            vrv.jssdk.openFileURL({
+                url: "http://xxx/1.txt",//1个文件链接
+                success: function () {
+                    // 失败返回 空
+                    // 成功 返回文件本地路径并打开
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+        function openImageURL() {
+            vrv.jssdk.openImageURL({
+                url: "[http://xxx/1.jpg, http://xxx/2.jpg]", //1张或多张图片链接 以数组形式存放
+                success: function () {
+                    // 失败返回 空
+                    // 成功打开图片列表
+                    alert(JSON.stringify(res));
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

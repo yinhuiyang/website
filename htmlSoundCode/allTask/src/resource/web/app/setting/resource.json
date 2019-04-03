@@ -1,0 +1,15 @@
+{
+	"config": {
+		
+	},
+	"file": {
+		"js":
+		[
+			{"src": "/resource/web/app/setting/js/app.js"}
+		],
+		"css":
+		[
+			{"src": "/resource/web/app/setting/css/app.css"}
+		]
+	}
+}

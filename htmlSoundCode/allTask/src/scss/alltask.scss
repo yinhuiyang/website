@@ -1,0 +1,269 @@
+@import 'index.scss';
+
+.taskModal{
+  .score-ul{
+    display: flex;
+    margin-left: 4px;
+    li{
+      margin-right: 5px;
+      i{
+        cursor: pointer;
+      }
+      .color{
+        color: #ecd76b;
+      }
+    }
+  }
+  .opinion-row{
+    display: flex;
+    line-height: 25px;
+    color: #bbb;
+    margin-bottom: 15px;
+    div:first-child {
+      margin-right: 30px;
+    }
+    div:last-child {
+      color: #919191;
+      textarea{
+        width: 494px;
+        resize: vertical;
+        font-size: 13px;
+        height: 69px;
+      }
+    }
+  }
+  #workingHours{
+    margin-left: 4px;
+    margin-right: 8px;
+    width: 480px;
+  }
+  .illustrate-row{
+    .workingHoursTitle{
+      margin-right: 30px;
+    }
+  }
+  
+  .ui-slider-handle{
+    width: 2.4em!important;
+    height: 1.4em!important;
+    margin-left: -1.2em!important;
+    top: -.4em!important;
+    line-height: 1.4em!important;
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
+.task-item{
+  .task-score{
+    margin-right: 5px;
+    ul{
+      display: flex;
+      li{
+        margin-left: 2px;
+        i{
+          color: #ecd76b;
+        }
+      }
+    }
+  }
+}
+
+.list-item{
+  .needTitle{
+    width: calc(100% - 22px);
+  }
+  .needComplete{
+    margin-left: 8px;
+  }
+  .yellowColor{
+    color: #ecd76b;
+  }
+  .greenColor{
+    color: green;
+  }
+  .needState{
+    display: flex;
+    line-height: 15px;
+    justify-content: space-between;
+    .needscore{
+      display: flex;
+      li{
+        margin-left: 2px;
+        i{
+          cursor: pointer;
+        }
+        i.color{
+          color: #ecd76b;
+        }
+      }
+    }
+    .needscore.prohibit{
+      i{
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.task-dialog{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  .task-content{
+    width: 600px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 50px 0;
+    .need-scorecomment{
+      display: flex;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      &>span{
+        width: 100px;
+      }
+      textarea{
+        width: 483px;
+        height: 75px;
+      }
+    }
+  }
+  .task-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &>span {
+      color: #7e8c8d;
+    }
+    .delDialog {
+      font-size: 21px;
+      cursor: pointer;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 0 #fff;
+      color: #000;
+      opacity: .2;
+    }
+  }
+  .task-footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    .btn-default{
+      line-height: 17px;
+      padding: 3px 8px;
+      background-color: #c7c7c7;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .btn-preserve{
+      background: #f89c2c;
+    }
+  }
+  .task-section{
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+  }
+}
+
+.dialog{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  .dialog-content{
+    width: 800px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 50px 0;
+  }
+  .dialog-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &>span{
+      color: #7e8c8d;
+    }
+    .delDialog {
+      font-size: 21px;
+      cursor: pointer;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 0 #fff;
+      color: #000;
+      opacity: .2;
+    }
+  }
+  .dialog-footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    .btn-default{
+      line-height: 17px;
+      padding: 3px 8px;
+      background-color: #c7c7c7;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .btn-confirm{
+      background: #f89c2c;
+    }
+  }
+  .dialog-section{
+    overflow: hidden;
+    height: calc(100% - 62px);
+    .dialog-form {
+      height: calc(100%);
+      overflow: hidden;
+      overflow-y: scroll;
+      margin-right: -17px;
+      padding-left: 10px;
+    }
+    .dialog-radio{
+      border-top: 1px solid #ddd;
+      margin-top: 10px;
+      padding-top: 10px;
+      &:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      &:before{
+        content: "";
+        display: table;
+      }
+      &>label{
+        float: left;
+        margin-right: 40px;
+        line-height: 35px;
+      }
+    }
+  }
+ 
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>工作台</title>
+    <link href="../plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="Workbench.css" rel="stylesheet">
+  </head>
+  <body>
+    <div>
+      <div class="group-home-panel text-center">
+        <div class="container-fluid container-limited">
+          <div class="avatar-container group-avatar">
+            <img class="avatar" src="" onerror="javascript:this.src='images/touxiang.jpg';">
+          </div>
+          <h1 class="group-title">
+            林泽成
+          </h1>
+          <div class="group-home-desc">
+            <p>移动开发组，移动开发</p>
+          </div>
+          <div class="group-home-desc">
+            <p style="margin-top: 10px;">
+              <a class="gock" href="" style="margin-top: 10px;padding: 2px 14px;background: beige;border-radius: 3px;">退出</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid container-limited groups-header">
+        <div class="top-area">
+          <ul class="nav-links">
+            <li class="active"><a>星标项目</a></li>
+            <li><a>所有项目</a></li>
+          </ul>
+          <div class="nav-controls">
+            <input class="form-control nameFiltering" type="text" placeholder="按名称过滤...">
+          </div>
+        </div>
+        <div>
+          <ul class="projects-list">
+            <li class="noData">你还没有给任何项目加注星标</li>
+            <!-- <li class="project-row">
+              <div class="index-s40">
+                <span>2</span>
+              </div>
+              <div class="project-details">
+                <h3>
+                  <a class="project" href="">
+                    <span class="project-name">
+                      vcalendar
+                    </span>
+                  </a>
+                </h3>
+              </div>
+              <div class="controls">
+                <div class="asterisk">
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="status">
+                  <div><span>进行中</span></div>
+                  <div><span>2018-11-10</span></div>
+                </div>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+        <div class="gl-pagination">
+          <ul class="pagination clearfix"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="../plugins/jquery/jquery.js"></script>
+    <script src="../bulid/js/taskTool.js"></script>
+    <script src="Workbench.js"></script>
+    <script>
+    Workbench.init()
+    </script>
+  </body>
+</html>

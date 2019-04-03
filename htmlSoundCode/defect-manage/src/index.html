@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+	<head>
+		<meta charset=utf-8>
+		<meta http-equiv=X-UA-Compatible content="IE=edge">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<title>缺陷管理</title>
+		<link rel=stylesheet href=plugins/fontawesome/css/font-awesome.css> <link rel=stylesheet href=coos/coos.css> <link
+		 href=plugins/jquery/ui/slider/jquery-ui.min.css rel=stylesheet>
+		<link href=plugins/jquery/ui/slider/jquery-ui-slider-pips.min.css rel=stylesheet>
+		<link href=plugins/jquery/datetimepicker/jquery.datetimepicker.css rel=stylesheet>
+		<link rel=stylesheet href=bulid/css/newbug.css> </head> <body class=defect-manage>
+		<div class=header>
+			<ul class="nav nav-pills nav-justified nav-defect" id=nav-defect>
+				<li role=presentation class=active><a href=#>全部</a></li>
+				<li role=presentation><a href=#>待修复</a></li>
+				<li role=presentation><a href=#>待验证</a></li>
+				<li role=presentation><a href=#>验证完成</a></li>
+				<li role=presentation><a href=#>拒绝</a></li>
+			</ul>
+		</div>
+		<div class=condition-defect>
+			<div class="condition-btn condition-my"><span value=1>指派给我的</span></div>
+			<div class="condition-btn condition-all active"><span value=0>全部</span></div>
+		</div>
+		<div class=defect-content>
+			<ul class=list-group></ul>
+		</div>
+		<script src=plugins/jquery/jquery.js> </script> <script src=coos/coos.js> </script> <script src=plugins/jquery/ui/slider/jquery-ui.min.js>
+		 </script> <script src=plugins/jquery/ui/slider/jquery-ui-slider-pips.js> </script> <script src=plugins/jquery/datetimepicker/jquery.datetimepicker.js>
+		 </script> <script src=plugins/ckeditor5-build-classic/ckeditor.js> </script> <script src=newbug.js></script>
+		<script>
+			defect.init()
+			defect.defectInit()
+		</script>
+		</body>
+</html>

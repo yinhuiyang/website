@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>缺陷管理</title>
+    <link rel="stylesheet" href="plugins/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="coos/coos.css">
+    <!-- <link rel="stylesheet" href="bulid/css/alltask.css"> -->
+    <link href="plugins/jquery/ui/slider/jquery-ui.min.css" rel="stylesheet">
+    <link href="plugins/jquery/ui/slider/jquery-ui-slider-pips.min.css" rel="stylesheet">
+    <link href="plugins/jquery/datetimepicker/jquery.datetimepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="bulid/css/newbug.css">
+  </head>
+  <body class="defect-manage">
+    <div class="header">
+      <ul class="nav nav-pills nav-justified nav-defect" id="nav-defect">
+        <li role="presentation" class="active"><a href="#">全部</a></li>
+        <li role="presentation"><a href="#">待修复</a></li>
+        <li role="presentation"><a href="#">待验证</a></li>
+        <li role="presentation"><a href="#">验证完成</a></li>
+        <li role="presentation"><a href="#">拒绝</a></li>
+      </ul>
+    </div>
+    <div class="condition-defect">
+      <div class="condition-btn condition-my">
+          <span value="1">指派给我的</span>
+      </div>
+      <div class="condition-btn condition-all active">
+          <span value="0">全部</span>
+      </div>
+    </div>
+    <div class="defect-content">
+      <ul class="list-group">
+        <!-- <li>
+          <div class="list-group-item" id="142452806636742958">
+            <div class="item-title">
+              <div>
+                <div class="title-font">缺陷调整优化</div>
+                <span class="item-state">进行中</span>
+              </div>
+              <div class="dropdown-task">
+                <i class="fa fa-chevron-down dropDown" id="dropdownMenu1" style=""></i>
+                <ul class="dropdown-menu dropdown-menu-right taskdown" aria-labelledby="dropdownMenu1" style="display: none;">
+                  <li>
+                    <a href="#" class="addtask"><i class="fa fa-pencil"></i>追加任务</a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://vrvwbs.linkdood.cn/vrv.task/task/need/toView.do?&amp;needid=142452806636742958"><i class="fa fa-eye"></i>查看需求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="interior-list">
+              <div class="interior-item" style="width: 100%;" id="142563485161478416">
+                <div class="interior-title">
+                  <span>gulp缺陷页面框架搭建</span>
+                  <div>
+                    <span class="">9小时</span>
+                    <span class="">100%</span>
+                  </div>
+                </div>
+                <div class="interior-state">
+                  <span>林泽成</span>
+                </div>
+                <div class="interior-time">
+                  <span>2018-12-21 09:00--2018-12-21 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="list-group-item" id="142452806636742958">
+            <div class="item-title">
+              <div>
+                <div class="title-font">缺陷调整优化</div>
+                <span class="item-state">进行中</span>
+              </div>
+              <div class="dropdown-task">
+                <i class="fa fa-chevron-down dropDown" id="dropdownMenu1" style=""></i>
+                <ul class="dropdown-menu dropdown-menu-right taskdown" aria-labelledby="dropdownMenu1" style="display: none;">
+                  <li>
+                    <a href="#" class="addtask"><i class="fa fa-pencil"></i>追加任务</a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://vrvwbs.linkdood.cn/vrv.task/task/need/toView.do?&amp;needid=142452806636742958"><i class="fa fa-eye"></i>查看需求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="interior-list">
+              <div class="interior-item" style="width: 100%;" id="142563485161478416">
+                <div class="interior-title">
+                  <span>gulp缺陷页面框架搭建</span>
+                  <div>
+                    <span class="">9小时</span>
+                    <span class="">100%</span>
+                  </div>
+                </div>
+                <div class="interior-state">
+                  <span>林泽成</span>
+                </div>
+                <div class="interior-time">
+                  <span>2018-12-21 09:00--2018-12-21 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="list-group-item" id="142452806636742958">
+            <div class="item-title">
+              <div>
+                <div class="title-font">缺陷调整优化</div>
+                <span class="item-state">进行中</span>
+              </div>
+              <div class="dropdown-task">
+                <i class="fa fa-chevron-down dropDown" id="dropdownMenu1" style=""></i>
+                <ul class="dropdown-menu dropdown-menu-right taskdown" aria-labelledby="dropdownMenu1" style="display: none;">
+                  <li>
+                    <a href="#" class="addtask"><i class="fa fa-pencil"></i>追加任务</a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://vrvwbs.linkdood.cn/vrv.task/task/need/toView.do?&amp;needid=142452806636742958"><i class="fa fa-eye"></i>查看需求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="interior-list">
+              <div class="interior-item" style="width: 100%;" id="142563485161478416">
+                <div class="interior-title">
+                  <span>gulp缺陷页面框架搭建</span>
+                  <div>
+                    <span class="">9小时</span>
+                    <span class="">100%</span>
+                  </div>
+                </div>
+                <div class="interior-state">
+                  <span>林泽成</span>
+                </div>
+                <div class="interior-time">
+                  <span>2018-12-21 09:00--2018-12-21 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="list-group-item" id="142452806636742958">
+            <div class="item-title">
+              <div>
+                <div class="title-font">缺陷调整优化</div>
+                <span class="item-state">进行中</span>
+              </div>
+              <div class="dropdown-task">
+                <i class="fa fa-chevron-down dropDown" id="dropdownMenu1" style=""></i>
+                <ul class="dropdown-menu dropdown-menu-right taskdown" aria-labelledby="dropdownMenu1" style="display: none;">
+                  <li>
+                    <a href="#" class="addtask"><i class="fa fa-pencil"></i>追加任务</a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://vrvwbs.linkdood.cn/vrv.task/task/need/toView.do?&amp;needid=142452806636742958"><i class="fa fa-eye"></i>查看需求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="interior-list">
+              <div class="interior-item" style="width: 100%;" id="142563485161478416">
+                <div class="interior-title">
+                  <span>gulp缺陷页面框架搭建</span>
+                  <div>
+                    <span class="">9小时</span>
+                    <span class="">100%</span>
+                  </div>
+                </div>
+                <div class="interior-state">
+                  <span>林泽成</span>
+                </div>
+                <div class="interior-time">
+                  <span>2018-12-21 09:00--2018-12-21 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+    <!-- <div class="defect-dialog">
+      <div class="defect-content">
+        <div class="defect-title">
+          <a href="#">gulp缺陷页面框架搭建</a>
+          <div style="display: flex;">
+            <div class="menuDown">
+              <i class="fa fa-angle-down"></i>
+              <ul class="menuList" style="display: none;">
+                <li class="delDefect">
+                  <i class="fa fa-trash-o"></i>
+                  <span>删除到回收站</span>
+                </li>
+               <li class="copyTask">
+                  <i class="fa fa-clipboard"></i>
+                  <span>复制任务</span>
+                </li>
+              </ul>
+            </div>
+            <span class="delDialog">×</span>
+          </div>
+        </div>
+        <div class="defect-section">
+          <div class="defect-form">
+            <div class="form-title">
+              <div class="" contenteditable="true">缺陷主页与代码压缩</div>
+            </div>
+            <div class="form-message">
+              <div class="defectStatus">
+                <span value="验证完成" name="">待修复</span>
+                <i class="fa fa-angle-down"></i>
+                <ul class="defectStatusList" style="display: none;">
+                  <li value="待修复">待修复</li>
+                  <li value="待验证">待验证</li>
+                  <li value="验证完成" class="active">验证完成</li>
+                  <li value="拒绝">拒绝</li>
+                </ul>
+              </div>
+              <div class="form-ascription">
+                <input type="text" autocomplete="off" id="ascription" placeholder="归属人" value="林泽成" name="140358297236550052" class="form-control-none">
+                <ul class="ascriptionList" style="display:none">
+                  <li value="" class="active">林泽成</li>
+                  <li value="">朱亮</li>
+                </ul>
+              </div>
+              <div class="form-time">
+                <i class="fa fa-calendar"></i>
+                <input type="text" class="endTime" placeholder="计划完成时间" value="2018-12-28 09:00">
+              </div>
+            </div>
+            <div class="form-illustrate">
+              <div class="illustrate-row">
+                <div>缺陷等级</div>
+                <div>
+                  <div class="select-group">
+                    <span value="1">一般</span>
+                    <i class="fa fa-angle-down"></i>
+                    <ul class="selectList" >
+                      <li value="0">轻微</l>
+                      <li value="1" class="active">一般</li>
+                      <li value="2">严重</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="illustrate-row">
+                <div>缺陷阶段</div>
+                <div>
+                    <div class="select-group">
+                      <span value="1">体验</span>
+                      <i class="fa fa-angle-down"></i>
+                      <ul class="selectList" >
+                        <li value="0">自测</l>
+                        <li value="1" class="active">体验</li>
+                        <li value="2">外部</li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+              <div class="delFloat">
+                <input label="图片" id="Progress-image" file-count="5" group-type="1" class="input-rule-group input-rule-file-image" need-addon="true" placeholder="图片"> 
+              </div>
+              <div class="delFloat">
+                <input label="文件" group-type="1" class="input-rule-group input-rule-file" need-addon="true" placeholder="文件" file-count="5" cannull="true">
+              </div>
+              <div class="illustrate-row">
+                <div style="margin-right: 70px;">描述</div>
+                <textarea class="illustrate-font" id="defect-editor"></textarea>
+              </div>
+            </div>
+            <div class="form-assist">
+              <div class="assist-title">
+                <i class="fa fa-list"></i>
+                <span>协助列表</span>
+              </div>
+              <div class="assist-list">
+                  <div class="assist-item" data-assistid="142640983707473942">
+                    <div class="assist-item-left">
+                      <span>林泽成</span>
+                      <span>2018-12-28</span>
+                      <span>9小时</span>
+                    </div>
+                    <div class="assist-item-right">
+                      <i class="fa fa-chevron-right"></i>
+                    </div>
+                  </div>
+              </div>
+              <div class="assist-add">
+                <i class="fa fa-plus-circle"></i>
+                <span>协助</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="defect-footer">
+          <span class="btn-default">取消</span>
+          <span class="btn-default btn-preserve">保存</span>
+        </div>
+      </div>
+
+    </div> -->
+    <!--  -->
+    <!-- <div class="need-select">
+      <div class="need-content">
+            <div class="need-section">
+              <input>
+              <ul>
+                <li><span>任务合一之后的统计修改</span> <i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改<i class="fa fa-check"></i></li>
+                <li>我要提需求，需求两个菜单变成产品需求、迭代需求。在新增，收录中去掉项目以及版本。<i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改<i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+                <li>缺陷管理，需求和任务，可以单挂需求，也可以挂需求下的任务，或者都不选，责任人手动选项缺陷归属人<i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改<i class="fa fa-check"></i></li>
+                <li>任务合一之后的统计修改 <i class="fa fa-check"></i></li>
+              </ul>
+            </div>
+          </div>
+    </div> -->
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="coos/coos.js"></script>
+    <script src="plugins/jquery/ui/slider/jquery-ui.min.js"></script>
+    <script src="plugins/jquery/ui/slider/jquery-ui-slider-pips.js"></script>
+    <script src="plugins/jquery/datetimepicker/jquery.datetimepicker.js"></script>
+    <script src="plugins/ckeditor5-build-classic/ckeditor.js"></script>
+    <!-- <script src="bulid/js/alltask.js"></script> -->
+    <script src="newbug.js"></script>
+    <script>
+      defect.init()
+      defect.defectInit()
+    </script>
+  </body>
+</html>
